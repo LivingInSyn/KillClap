@@ -3,16 +3,18 @@
   "version": "0.1",
   "description": "I really just hate clap emoji",
   "icons": {"128": "img/clap128.png"},
-  "background": { "scripts":["background.js"]},
   "content_scripts": [
         {
             "matches": [
                 "*://*/*"
             ],
+            "exclude_matches": [
+                "*://*.slack.com/*"
+            ],
             "js": [
                 "killClapV2.js"
             ],
-            "run_at": "document_end"
+            "run_at": "document_start"
         }
     ],
     "manifest_version": 2
